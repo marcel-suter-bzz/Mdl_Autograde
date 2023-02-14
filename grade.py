@@ -42,7 +42,7 @@ class Grade():
         self.courseid = dict['courseid']
         self.assignmentid = dict['assignmentid']
         self.userid = dict['userid']
-        self.points = dict['points']
+        self.points = float(dict['points'])
         self.updated = dict['updated']
 
     @property
