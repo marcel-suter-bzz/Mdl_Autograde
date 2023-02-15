@@ -21,8 +21,10 @@ def main():
             age_days = (date.today() - grade.updated).days
             if age_days > 30:
                 del grades_db[key]
-            elif grade.assignmentid != 0 and grade.points > 0.0:
+            elif grade.assignmentid != 0 and grade.points >= 0.0:
                 update_moodle(grade)
+                grade.points = -1
+                grades_db[key] = grade.to_dict()
 
 
 def update_moodle(grade):
